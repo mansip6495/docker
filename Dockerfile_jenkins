@@ -1,0 +1,6 @@
+FROM ubuntu
+RUN apt update -y && apt install -y default-jre gnupg2
+COPY jenkins.war .
+VOLUME /root/.jenkins
+EXPOSE 8080
+CMD ["java", "-jar", "jenkins.war"]

@@ -1,0 +1,11 @@
+FROM ubuntu
+RUN apt update -y && apt install -y apache2
+RUN rm /etc/apache2/sites-enabled/000-default.conf 
+#VOLUME /home/mansi/Documents/intership_test/docker/apache/conf /etc/apache2/sites-enabled
+RUN mkdir -p /var/www/html/apache2/ 
+#VOLUME /home/mansi/Documents/intership_test/docker/apache/static_page /var/www/html/apache2
+EXPOSE 80
+#ENTRYPOINT ["apachectl","-D","FOREGROUND"]
+ENTRYPOINT apachectl -D FOREGROUND
+
+
